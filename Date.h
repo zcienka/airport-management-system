@@ -1,0 +1,11 @@
+#ifndef AIRLINETICKETMANAGEMENTSYSTEM_DATE_H
+#define AIRLINETICKETMANAGEMENTSYSTEM_DATE_H
+struct Date
+{
+    int day;
+    int month;
+    int year;
+};
+
+#endif //AIRLINETICKETMANAGEMENTSYSTEM_DATE_H
+
