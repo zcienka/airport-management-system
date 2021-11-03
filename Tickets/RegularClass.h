@@ -1,7 +1,6 @@
 #include <string>
 #include "../Person.h"
 #include "../constants.h"
-#include "../Date.h"
 #include <vector>
 #include "../constants.h"
 
@@ -11,30 +10,24 @@
 class RegularClass
 {
 protected:
-    std::string departureAirport;
-    std::string arrivalAirport;
     Date departureDate;
     double price;
     int numOfHandBaggage;
     std::string seat;
+    std::vector<Person> people;
+    double basicPrice;
 public:
-    RegularClass(std::string const &departureAirport,
-                 std::string const &arrivalAirport,
-                 Date const &departureDate,
+    RegularClass(Date const &departureDate,
                  int const &numOfHandBaggage,
                  std::vector<Person> people);
 
-    virtual void addExtraHandBaggage(int const &numOfBaggage);
+    virtual void addExtraHandBaggage();
 
     virtual void cancelFlight();
 
-    virtual void changeArrivalAirport(std::string const &airport);
+    virtual void changeDepartureDate();
 
-    virtual void changeDepartureAirport(std::string const &airport);
-
-    virtual void changeDepartureDate(Date const &date);
-
-    virtual std::string getArrivalAirport();
+    virtual void changeSeat();
 };
 
 

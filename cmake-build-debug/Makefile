@@ -128,6 +128,30 @@ AirlineTicketManagementSystem/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AirlineTicketManagementSystem.dir\build.make CMakeFiles/AirlineTicketManagementSystem.dir/build
 .PHONY : AirlineTicketManagementSystem/fast
 
+Date.obj: Date.cpp.obj
+.PHONY : Date.obj
+
+# target to build an object file
+Date.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AirlineTicketManagementSystem.dir\build.make CMakeFiles/AirlineTicketManagementSystem.dir/Date.cpp.obj
+.PHONY : Date.cpp.obj
+
+Date.i: Date.cpp.i
+.PHONY : Date.i
+
+# target to preprocess a source file
+Date.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AirlineTicketManagementSystem.dir\build.make CMakeFiles/AirlineTicketManagementSystem.dir/Date.cpp.i
+.PHONY : Date.cpp.i
+
+Date.s: Date.cpp.s
+.PHONY : Date.s
+
+# target to generate assembly for a file
+Date.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AirlineTicketManagementSystem.dir\build.make CMakeFiles/AirlineTicketManagementSystem.dir/Date.cpp.s
+.PHONY : Date.cpp.s
+
 Person.obj: Person.cpp.obj
 .PHONY : Person.obj
 
@@ -233,6 +257,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... AirlineTicketManagementSystem
+	@echo ... Date.obj
+	@echo ... Date.i
+	@echo ... Date.s
 	@echo ... Person.obj
 	@echo ... Person.i
 	@echo ... Person.s

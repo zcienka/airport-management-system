@@ -1,32 +1,26 @@
 #include "RegularClass.h"
 #include <iostream>
+#include <cstring>
 
-RegularClass::RegularClass(std::string const &departureAirport,
-                           std::string const &arrivalAirport,
-                           Date const &departureDate,
+RegularClass::RegularClass(Date const &departureDate,
                            int const &numOfHandBaggage,
                            std::vector<Person> people)
 {
-    this->departureAirport = departureAirport;
-    this->arrivalAirport = arrivalAirport;
     this->departureDate = departureDate;
-    this->price = 0;
+    this->price == == == == == == == == == == == == == == price;
     this->numOfHandBaggage = numOfHandBaggage;
+    this->people = people;
 
+    int id = 1;
     for (auto &person: people)
     {
-        if (person.getTypeOfPerson() == CHILD)
-        {
-            this->price -= 100;
-        }
-        else if (person.getTypeOfPerson() == TODDLER)
-        {
-            this->price -= 200;
-        }
+        person.setId(id);
+        ++id;
+        this->price -= price * ((float) person.getDiscountValue() / 100);
     }
 }
 
-void RegularClass::addExtraHandBaggage(int const &numOfHandBaggage)
+void RegularClass::addExtraHandBaggage()
 {
     if (this->numOfHandBaggage + numOfHandBaggage == 1)
     {
@@ -40,19 +34,36 @@ void RegularClass::addExtraHandBaggage(int const &numOfHandBaggage)
 
 void RegularClass::cancelFlight()
 {
-    this->price /= 2;
-}
+    std::cout << "[a] Cancel all tickets." << std::endl;
+    std::cout << "[b] Cancel some tickets." << std::endl;
 
-void RegularClass::changeArrivalAirport(std::string const &airport)
-{
-    this->arrivalAirport = airport;
-    this->price += 300;
-}
+    std::string option;
+    while (std::cin >> option)
+    {
 
-void RegularClass::changeDepartureAirport(std::string const &airport)
-{
-    this->departureAirport = airport;
-    this->price += 300;
+        if (option == "a")
+        {
+            this->price /= 2;
+            break;
+        }
+        else if (option == "b")
+        {
+            std::cout << "Choose tickets to cancel" << std::endl;
+            for (auto &person: people)
+            {
+                std::cout << "[" << person.getId() << "] " <<
+                          person.getName() << " " <<
+                          person.getLastName() <<
+                          "ticket from " << departureAirport <<
+                          "to " << arrivalAirport <<
+                          "price: " << basicPrice + basicPrice * ((float) person.getDiscountValue() / 100)
+                          << "PLN" << std::endl;
+            }
+        }
+        std::cout << "Chosen option is invalid." << std::endl;
+        std::cout << "[a] Cancel all tickets." << std::endl;
+        std::cout << "[b] Cancel some tickets." << std::endl;
+    }
 }
 
 void RegularClass::changeDepartureDate()
@@ -62,16 +73,11 @@ void RegularClass::changeDepartureDate()
     std::string date;
     Date changedDate;
 
-    while(std::cin >> date)
+    while (std::cin >> date)
     {
 
     }
 
     this->departureDate = changedDate;
     this->price += 250;
-}
-
-std::string RegularClass::getArrivalAirport()
-{
-    return arrivalAirport;
 }

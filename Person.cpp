@@ -61,6 +61,18 @@ Person::Person(Date const &dateOfBirth,
         this->typeOfPerson = TODDLER;
     }
 
+    if (typeOfPerson == CHILD)
+    {
+        this->discountValue = 40;
+    }
+    else if (typeOfPerson == TODDLER)
+    {
+        this->discountValue = 100;
+    }
+    else
+    {
+        this->discountValue = 0;
+    }
 }
 
 std::string Person::getTypeOfPerson()
@@ -68,4 +80,33 @@ std::string Person::getTypeOfPerson()
     return typeOfPerson;
 }
 
+std::string Person::getName()
+{
+    return name;
+}
 
+std::string Person::getLastName()
+{
+    return surname;
+}
+
+void Person::setTicketPrice(int const &ticketPrice)
+{
+    this->discountValue = ticketPrice;
+}
+
+
+int Person::getDiscountValue() const
+{
+    return this->discountValue;
+}
+
+void Person::setId(const int &id)
+{
+    this->id = id;
+}
+
+int Person::getId() const
+{
+    return this->id;
+}

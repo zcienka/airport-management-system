@@ -1,13 +1,12 @@
+#ifndef AIRLINETICKETMANAGEMENTSYSTEM_BUSINESSCLASS_H
+#define AIRLINETICKETMANAGEMENTSYSTEM_BUSINESSCLASS_H
+
 #include <string>
 #include "../Person.h"
 #include "RegularClass.h"
 
-#ifndef AIRLINETICKETMANAGEMENTSYSTEM_BUSINESSCLASS_H
-#define AIRLINETICKETMANAGEMENTSYSTEM_BUSINESSCLASS_H
-
 class BusinessClass : public RegularClass
 {
-protected:
     int numOfBaggage;
     Date dateOfCarPickup;
     Date dateOfCarDropOff;
@@ -19,16 +18,19 @@ public:
                   int const &numOfBaggage,
                   std::vector<Person> people);
 
-    void setSeat(std::string const &seat);
+    void addExtraBaggage();
 
-    void addExtraBaggage(int const &numOfBaggage);
+    void addExtraHandBaggage() override;
 
-    void setDateOfCarParkingTime(Date const &dateOfCarPickup, Date const &dateOfCarDropOff);
+    void cancelFlight() override;
 
-    void extendValidityOfTicket(std::string const &validityOfTicket);
+    void changeDepartureDate() override;
 
-    void changeDepartureDate(Date const &date);
+    void changeSeat() override;
 
+    void extendValidityOfTicket();
+
+    void setDateOfCarParkingTime();
 };
 
 
