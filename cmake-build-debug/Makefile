@@ -152,29 +152,29 @@ Date.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AirlineTicketManagementSystem.dir\build.make CMakeFiles/AirlineTicketManagementSystem.dir/Date.cpp.s
 .PHONY : Date.cpp.s
 
-Person.obj: Person.cpp.obj
-.PHONY : Person.obj
+Passenger.obj: Passenger.cpp.obj
+.PHONY : Passenger.obj
 
 # target to build an object file
-Person.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AirlineTicketManagementSystem.dir\build.make CMakeFiles/AirlineTicketManagementSystem.dir/Person.cpp.obj
-.PHONY : Person.cpp.obj
+Passenger.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AirlineTicketManagementSystem.dir\build.make CMakeFiles/AirlineTicketManagementSystem.dir/Passenger.cpp.obj
+.PHONY : Passenger.cpp.obj
 
-Person.i: Person.cpp.i
-.PHONY : Person.i
+Passenger.i: Passenger.cpp.i
+.PHONY : Passenger.i
 
 # target to preprocess a source file
-Person.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AirlineTicketManagementSystem.dir\build.make CMakeFiles/AirlineTicketManagementSystem.dir/Person.cpp.i
-.PHONY : Person.cpp.i
+Passenger.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AirlineTicketManagementSystem.dir\build.make CMakeFiles/AirlineTicketManagementSystem.dir/Passenger.cpp.i
+.PHONY : Passenger.cpp.i
 
-Person.s: Person.cpp.s
-.PHONY : Person.s
+Passenger.s: Passenger.cpp.s
+.PHONY : Passenger.s
 
 # target to generate assembly for a file
-Person.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AirlineTicketManagementSystem.dir\build.make CMakeFiles/AirlineTicketManagementSystem.dir/Person.cpp.s
-.PHONY : Person.cpp.s
+Passenger.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AirlineTicketManagementSystem.dir\build.make CMakeFiles/AirlineTicketManagementSystem.dir/Passenger.cpp.s
+.PHONY : Passenger.cpp.s
 
 Tickets/BusinessClass.obj: Tickets/BusinessClass.cpp.obj
 .PHONY : Tickets/BusinessClass.obj
@@ -260,9 +260,9 @@ help:
 	@echo ... Date.obj
 	@echo ... Date.i
 	@echo ... Date.s
-	@echo ... Person.obj
-	@echo ... Person.i
-	@echo ... Person.s
+	@echo ... Passenger.obj
+	@echo ... Passenger.i
+	@echo ... Passenger.s
 	@echo ... Tickets/BusinessClass.obj
 	@echo ... Tickets/BusinessClass.i
 	@echo ... Tickets/BusinessClass.s

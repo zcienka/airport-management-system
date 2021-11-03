@@ -3,7 +3,7 @@ file(REMOVE_RECURSE
   "AirlineTicketManagementSystem.exe.manifest"
   "AirlineTicketManagementSystem.pdb"
   "CMakeFiles/AirlineTicketManagementSystem.dir/Date.cpp.obj"
-  "CMakeFiles/AirlineTicketManagementSystem.dir/Person.cpp.obj"
+  "CMakeFiles/AirlineTicketManagementSystem.dir/Passenger.cpp.obj"
   "CMakeFiles/AirlineTicketManagementSystem.dir/Tickets/BusinessClass.cpp.obj"
   "CMakeFiles/AirlineTicketManagementSystem.dir/Tickets/RegularClass.cpp.obj"
   "CMakeFiles/AirlineTicketManagementSystem.dir/main.cpp.obj"

@@ -104,18 +104,18 @@ CMakeFiles/AirlineTicketManagementSystem.dir/Tickets/RegularClass.cpp.s: cmake_f
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AirlineTicketManagementSystem.dir/Tickets/RegularClass.cpp.s"
 	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\zuzan\Desktop\repos\AirlineTicketManagementSystem\Tickets\RegularClass.cpp -o CMakeFiles\AirlineTicketManagementSystem.dir\Tickets\RegularClass.cpp.s
 
-CMakeFiles/AirlineTicketManagementSystem.dir/Person.cpp.obj: CMakeFiles/AirlineTicketManagementSystem.dir/flags.make
-CMakeFiles/AirlineTicketManagementSystem.dir/Person.cpp.obj: ../Person.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\zuzan\Desktop\repos\AirlineTicketManagementSystem\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/AirlineTicketManagementSystem.dir/Person.cpp.obj"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AirlineTicketManagementSystem.dir\Person.cpp.obj -c C:\Users\zuzan\Desktop\repos\AirlineTicketManagementSystem\Person.cpp
+CMakeFiles/AirlineTicketManagementSystem.dir/Passenger.cpp.obj: CMakeFiles/AirlineTicketManagementSystem.dir/flags.make
+CMakeFiles/AirlineTicketManagementSystem.dir/Passenger.cpp.obj: ../Passenger.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\zuzan\Desktop\repos\AirlineTicketManagementSystem\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/AirlineTicketManagementSystem.dir/Passenger.cpp.obj"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AirlineTicketManagementSystem.dir\Passenger.cpp.obj -c C:\Users\zuzan\Desktop\repos\AirlineTicketManagementSystem\Passenger.cpp
 
-CMakeFiles/AirlineTicketManagementSystem.dir/Person.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AirlineTicketManagementSystem.dir/Person.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\zuzan\Desktop\repos\AirlineTicketManagementSystem\Person.cpp > CMakeFiles\AirlineTicketManagementSystem.dir\Person.cpp.i
+CMakeFiles/AirlineTicketManagementSystem.dir/Passenger.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AirlineTicketManagementSystem.dir/Passenger.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\zuzan\Desktop\repos\AirlineTicketManagementSystem\Passenger.cpp > CMakeFiles\AirlineTicketManagementSystem.dir\Passenger.cpp.i
 
-CMakeFiles/AirlineTicketManagementSystem.dir/Person.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AirlineTicketManagementSystem.dir/Person.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\zuzan\Desktop\repos\AirlineTicketManagementSystem\Person.cpp -o CMakeFiles\AirlineTicketManagementSystem.dir\Person.cpp.s
+CMakeFiles/AirlineTicketManagementSystem.dir/Passenger.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AirlineTicketManagementSystem.dir/Passenger.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\zuzan\Desktop\repos\AirlineTicketManagementSystem\Passenger.cpp -o CMakeFiles\AirlineTicketManagementSystem.dir\Passenger.cpp.s
 
 CMakeFiles/AirlineTicketManagementSystem.dir/Date.cpp.obj: CMakeFiles/AirlineTicketManagementSystem.dir/flags.make
 CMakeFiles/AirlineTicketManagementSystem.dir/Date.cpp.obj: ../Date.cpp
@@ -135,7 +135,7 @@ AirlineTicketManagementSystem_OBJECTS = \
 "CMakeFiles/AirlineTicketManagementSystem.dir/main.cpp.obj" \
 "CMakeFiles/AirlineTicketManagementSystem.dir/Tickets/BusinessClass.cpp.obj" \
 "CMakeFiles/AirlineTicketManagementSystem.dir/Tickets/RegularClass.cpp.obj" \
-"CMakeFiles/AirlineTicketManagementSystem.dir/Person.cpp.obj" \
+"CMakeFiles/AirlineTicketManagementSystem.dir/Passenger.cpp.obj" \
 "CMakeFiles/AirlineTicketManagementSystem.dir/Date.cpp.obj"
 
 # External object files for target AirlineTicketManagementSystem
@@ -144,7 +144,7 @@ AirlineTicketManagementSystem_EXTERNAL_OBJECTS =
 AirlineTicketManagementSystem.exe: CMakeFiles/AirlineTicketManagementSystem.dir/main.cpp.obj
 AirlineTicketManagementSystem.exe: CMakeFiles/AirlineTicketManagementSystem.dir/Tickets/BusinessClass.cpp.obj
 AirlineTicketManagementSystem.exe: CMakeFiles/AirlineTicketManagementSystem.dir/Tickets/RegularClass.cpp.obj
-AirlineTicketManagementSystem.exe: CMakeFiles/AirlineTicketManagementSystem.dir/Person.cpp.obj
+AirlineTicketManagementSystem.exe: CMakeFiles/AirlineTicketManagementSystem.dir/Passenger.cpp.obj
 AirlineTicketManagementSystem.exe: CMakeFiles/AirlineTicketManagementSystem.dir/Date.cpp.obj
 AirlineTicketManagementSystem.exe: CMakeFiles/AirlineTicketManagementSystem.dir/build.make
 AirlineTicketManagementSystem.exe: CMakeFiles/AirlineTicketManagementSystem.dir/linklibs.rsp

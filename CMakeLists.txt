@@ -7,6 +7,6 @@ add_executable(AirlineTicketManagementSystem
         main.cpp
         Tickets/BusinessClass.cpp
         Tickets/RegularClass.cpp
-        Person.cpp
+        Passenger.cpp
         constants.h
         Date.cpp)

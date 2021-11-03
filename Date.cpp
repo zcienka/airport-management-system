@@ -2,13 +2,7 @@
 #include <ctime>
 #include <algorithm>
 #include <string>
-
-struct Date
-{
-    int day;
-    int month;
-    int year;
-};
+#include "Date.h"
 
 Date getDate(std::string date)
 {
@@ -175,7 +169,7 @@ bool isDateValid(std::string date)
     return false;
 }
 
-bool isAfterTheDate(Date date1, Date date2)
+bool isPastTheDate(Date date1, Date date2)
 {
     if (date1.year > date2.year)
     {

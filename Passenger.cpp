@@ -1,8 +1,8 @@
-#include "Person.h"
+#include "Passenger.h"
 
-Person::Person(Date const &dateOfBirth,
-               std::string const &name,
-               std::string const &lastName)
+Passenger::Passenger(Date const &dateOfBirth,
+                     std::string const &name,
+                     std::string const &lastName)
 {
     this->name = name;
     this->surname = lastName;
@@ -75,38 +75,52 @@ Person::Person(Date const &dateOfBirth,
     }
 }
 
-std::string Person::getTypeOfPerson()
+std::string Passenger::getTypeOfPerson()
 {
     return typeOfPerson;
 }
 
-std::string Person::getName()
+std::string Passenger::getName()
 {
     return name;
 }
 
-std::string Person::getLastName()
+std::string Passenger::getLastName()
 {
     return surname;
 }
 
-void Person::setTicketPrice(int const &ticketPrice)
-{
-    this->discountValue = ticketPrice;
-}
-
-
-int Person::getDiscountValue() const
+int Passenger::getDiscountValue() const
 {
     return this->discountValue;
 }
 
-void Person::setId(const int &id)
+void Passenger::setId(int const &id)
 {
     this->id = id;
 }
 
-int Person::getId() const
+int Passenger::getId() const
 {
     return this->id;
+}
+
+void Passenger::setTicketPrice(float const &basicPrice)
+{
+    this->ticketPrice = basicPrice - basicPrice * ((float) this->discountValue / 100);
+}
+
+float Passenger::getTicketPrice() const
+{
+    return ticketPrice;
+}
+
+std::string Passenger::getSeatNumber()
+{
+    return this->seat;
+}
+
+void Passenger::setSeatNumber(std::string const &seatNumber)
+{
+    this->seat = seatNumber;
 }

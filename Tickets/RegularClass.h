@@ -1,33 +1,40 @@
+#ifndef AIRLINETICKETMANAGEMENTSYSTEM_REGULARCLASS_H
+#define AIRLINETICKETMANAGEMENTSYSTEM_REGULARCLASS_H
+
 #include <string>
-#include "../Person.h"
+#include "../Passenger.h"
 #include "../constants.h"
 #include <vector>
 #include "../constants.h"
-
-#ifndef AIRLINETICKETMANAGEMENTSYSTEM_REGULARCLASS_H
-#define AIRLINETICKETMANAGEMENTSYSTEM_REGULARCLASS_H
+#include "../Date.h"
 
 class RegularClass
 {
 protected:
     Date departureDate;
-    double price;
     int numOfHandBaggage;
-    std::string seat;
-    std::vector<Person> people;
-    double basicPrice;
+    std::vector<Passenger> passengers;
+    float basicPrice;
+    FlightConnection flightConnection;
+    float totalPrice;
+    std::string validityOfTickets;
 public:
     RegularClass(Date const &departureDate,
                  int const &numOfHandBaggage,
-                 std::vector<Person> people);
+                 std::vector<Passenger> people,
+                 FlightConnection const &flightConnection);
 
     virtual void addExtraHandBaggage();
 
-    virtual void cancelFlight();
+    void cancelFlight();
 
     virtual void changeDepartureDate();
 
     virtual void changeSeat();
+
+    virtual void printTicketInformation();
+
+    void extendValidityOfTicket();
 };
 
 

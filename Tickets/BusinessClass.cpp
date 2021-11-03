@@ -1,15 +1,13 @@
 #include <iostream>
 #include "BusinessClass.h"
 
-BusinessClass::BusinessClass(std::string const &departureAirport,
-                             std::string const &arrivalAirport,
-                             Date const &departureDate,
+BusinessClass::BusinessClass(Date const &departureDate,
                              int const &numOfBaggage,
-                             std::vector<Person> people) : RegularClass(arrivalAirport,
-                                                                        departureAirport,
-                                                                        departureDate,
-                                                                        numOfBaggage,
-                                                                        people) {}
+                             std::vector<Passenger> const &people,
+                             FlightConnection const &flightConnection) : RegularClass(departureDate,
+                                                                                      numOfBaggage,
+                                                                                      people,
+                                                                                      flightConnection) {}
 
 void BusinessClass::addExtraBaggage()
 {
@@ -22,7 +20,7 @@ void BusinessClass::addExtraBaggage()
         {
             if (this->numOfBaggage + std::stoi(numOfBaggage) <= 10)
             {
-                this->price += 230 * std::stoi(numOfBaggage);
+                this->totalPrice += (float) (230 * std::stoi(numOfBaggage));
                 this->numOfBaggage += std::stoi(numOfBaggage);
                 break;
             }
@@ -56,11 +54,6 @@ void BusinessClass::addExtraHandBaggage()
     }
 }
 
-void BusinessClass::cancelFlight()
-{
-    this->price = price * 0.25;
-}
-
 void BusinessClass::changeDepartureDate()
 {
     std::cout << "Enter changed departure date:";
@@ -80,69 +73,6 @@ void BusinessClass::changeDepartureDate()
             std::cout << "Enter changed departure date:";
         }
     }
-}
-
-void BusinessClass::changeSeat()
-{
-    std::string seat;
-    std::cout << "Enter seat number [A-F][1-15]:";
-
-    while (std::cin >> seat)
-    {
-        if (seat.length() >= 2)
-        {
-            if (std::isalpha(seat[0]))
-            {
-                if (seat[0] >= 'A' && seat[0] <= 'F')
-                {
-                    if (seat.length() == 3)
-                    {
-
-                        if (std::isdigit(seat[1]) && std::isdigit(seat[2]))
-                        {
-                            if (seat[2] < '2' && seat[1] == '1')
-                            {
-                                this->seat = seat;
-                                break;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        if (std::isdigit(seat[1]))
-                        {
-                            this->seat = seat;
-                            break;
-                        }
-                    }
-                }
-            }
-        }
-        std::cout << "Seat number is invalid." << std::endl;
-        std::cout << "Enter seat number [A-F][1-15]:";
-    }
-}
-
-void BusinessClass::extendValidityOfTicket()
-{
-    std::cout << "Enter wanted validity of ticket:";
-    std::string date;
-
-    while (std::cin >> date)
-    {
-        if (isDateValid(date))
-        {
-            Date validityOfTicket = getDate(date);
-            if (isFutureDateValid(validityOfTicket))
-            {
-                this->validityOfTicket = date;
-                break;
-            }
-            std::cout << "Entered date is incorrect." << std::endl;
-            std::cout << "Enter wanted validity of ticket:";
-        }
-    }
-
 }
 
 void BusinessClass::setDateOfCarParkingTime()
@@ -173,7 +103,7 @@ void BusinessClass::setDateOfCarParkingTime()
         if (isDateValid(dateOfCarPickup))
         {
             Date date = getDate(dateOfCarPickup);
-            if (isFutureDateValid(date) && isAfterTheDate(dateOfCarPickup, dateOfCarDropOff))
+            if (isFutureDateValid(date) && isPastTheDate(this->dateOfCarPickup, this->dateOfCarDropOff))
             {
                 this->dateOfCarPickup = date;
                 break;
@@ -183,5 +113,36 @@ void BusinessClass::setDateOfCarParkingTime()
                      "Date of pickup needs to be an integer and it needs to take place after the drop-off date"
                   << std::endl;
         std::cout << "Enter date of car pick-up:";
+    }
+}
+
+void BusinessClass::printTicketInformation()
+{
+    std::cout << "Requested tickets information." << std::endl;
+    std::cout << "Total price: " << this->totalPrice << "PLN" << std::endl;
+    std::cout << "Departure date: " <<
+              this->departureDate.day << "-" <<
+              this->departureDate.month << "-" <<
+              this->departureDate.year << std::endl;
+
+    std::cout << "Number of hand baggage: " << this->numOfHandBaggage << std::endl;
+    std::cout << "Number of baggage: " << this->numOfBaggage << std::endl;
+    std::cout << "Validity of tickets: " << this->validityOfTickets << std::endl;
+    std::cout << "Date of car pick-up:"
+              << this->dateOfCarPickup.day
+              << this->dateOfCarPickup.month
+              << this->dateOfCarPickup.year << std::endl;
+    std::cout << "Date of car pick-up:"
+              << this->dateOfCarDropOff.day
+              << this->dateOfCarDropOff.month
+              << this->dateOfCarDropOff.year << std::endl;
+    std::cout << "------------------------------------------------------------" << std::endl;
+    std::cout << "Passengers:" << std::endl;
+
+    for (auto &passenger: this->passengers)
+    {
+        std::cout << "Name: " << passenger.getName() << "Last name: " << passenger.getLastName() <<
+                  "Seat number: " << passenger.getSeatNumber() <<
+                  ". Ticket price: " << passenger.getTicketPrice() << "PLN" << std::endl;
     }
 }

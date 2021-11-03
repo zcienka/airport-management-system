@@ -85,10 +85,10 @@
 		<Unit filename="C:/Users/zuzan/Desktop/repos/AirlineTicketManagementSystem/Date.cpp">
 			<Option target="AirlineTicketManagementSystem"/>
 		</Unit>
-		<Unit filename="C:/Users/zuzan/Desktop/repos/AirlineTicketManagementSystem/Person.cpp">
+		<Unit filename="C:/Users/zuzan/Desktop/repos/AirlineTicketManagementSystem/Passenger.cpp">
 			<Option target="AirlineTicketManagementSystem"/>
 		</Unit>
-		<Unit filename="C:/Users/zuzan/Desktop/repos/AirlineTicketManagementSystem/Person.h">
+		<Unit filename="C:/Users/zuzan/Desktop/repos/AirlineTicketManagementSystem/Passenger.h">
 			<Option target="AirlineTicketManagementSystem"/>
 		</Unit>
 		<Unit filename="C:/Users/zuzan/Desktop/repos/AirlineTicketManagementSystem/Tickets/BusinessClass.cpp">
