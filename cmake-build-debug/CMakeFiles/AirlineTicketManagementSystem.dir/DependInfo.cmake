@@ -8,10 +8,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/zuzan/CLionProjects/AirlineTicketManagementSystem/Person.cpp" "C:/Users/zuzan/CLionProjects/AirlineTicketManagementSystem/cmake-build-debug/CMakeFiles/AirlineTicketManagementSystem.dir/Person.cpp.obj"
-  "C:/Users/zuzan/CLionProjects/AirlineTicketManagementSystem/Tickets/BusinessClass.cpp" "C:/Users/zuzan/CLionProjects/AirlineTicketManagementSystem/cmake-build-debug/CMakeFiles/AirlineTicketManagementSystem.dir/Tickets/BusinessClass.cpp.obj"
-  "C:/Users/zuzan/CLionProjects/AirlineTicketManagementSystem/Tickets/RegularClass.cpp" "C:/Users/zuzan/CLionProjects/AirlineTicketManagementSystem/cmake-build-debug/CMakeFiles/AirlineTicketManagementSystem.dir/Tickets/RegularClass.cpp.obj"
-  "C:/Users/zuzan/CLionProjects/AirlineTicketManagementSystem/main.cpp" "C:/Users/zuzan/CLionProjects/AirlineTicketManagementSystem/cmake-build-debug/CMakeFiles/AirlineTicketManagementSystem.dir/main.cpp.obj"
+  "C:/Users/zuzan/Desktop/repos/AirlineTicketManagementSystem/Person.cpp" "C:/Users/zuzan/Desktop/repos/AirlineTicketManagementSystem/cmake-build-debug/CMakeFiles/AirlineTicketManagementSystem.dir/Person.cpp.obj"
+  "C:/Users/zuzan/Desktop/repos/AirlineTicketManagementSystem/Tickets/BusinessClass.cpp" "C:/Users/zuzan/Desktop/repos/AirlineTicketManagementSystem/cmake-build-debug/CMakeFiles/AirlineTicketManagementSystem.dir/Tickets/BusinessClass.cpp.obj"
+  "C:/Users/zuzan/Desktop/repos/AirlineTicketManagementSystem/Tickets/RegularClass.cpp" "C:/Users/zuzan/Desktop/repos/AirlineTicketManagementSystem/cmake-build-debug/CMakeFiles/AirlineTicketManagementSystem.dir/Tickets/RegularClass.cpp.obj"
+  "C:/Users/zuzan/Desktop/repos/AirlineTicketManagementSystem/main.cpp" "C:/Users/zuzan/Desktop/repos/AirlineTicketManagementSystem/cmake-build-debug/CMakeFiles/AirlineTicketManagementSystem.dir/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

@@ -8,18 +8,18 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="C:/Users/zuzan/CLionProjects/AirlineTicketManagementSystem/cmake-build-debug"/>
+				<Option working_dir="C:/Users/zuzan/Desktop/repos/AirlineTicketManagementSystem/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zuzan/CLionProjects/AirlineTicketManagementSystem/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zuzan/CLionProjects/AirlineTicketManagementSystem/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zuzan/CLionProjects/AirlineTicketManagementSystem/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zuzan/CLionProjects/AirlineTicketManagementSystem/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zuzan/Desktop/repos/AirlineTicketManagementSystem/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zuzan/Desktop/repos/AirlineTicketManagementSystem/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zuzan/Desktop/repos/AirlineTicketManagementSystem/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zuzan/Desktop/repos/AirlineTicketManagementSystem/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="AirlineTicketManagementSystem">
-				<Option output="C:/Users/zuzan/CLionProjects/AirlineTicketManagementSystem/cmake-build-debug/AirlineTicketManagementSystem.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/zuzan/CLionProjects/AirlineTicketManagementSystem/cmake-build-debug"/>
+				<Option output="C:/Users/zuzan/Desktop/repos/AirlineTicketManagementSystem/cmake-build-debug/AirlineTicketManagementSystem.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/zuzan/Desktop/repos/AirlineTicketManagementSystem/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -33,15 +33,15 @@
 					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zuzan/CLionProjects/AirlineTicketManagementSystem/cmake-build-debug/Makefile&quot;  VERBOSE=1 AirlineTicketManagementSystem"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zuzan/CLionProjects/AirlineTicketManagementSystem/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zuzan/CLionProjects/AirlineTicketManagementSystem/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zuzan/CLionProjects/AirlineTicketManagementSystem/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zuzan/Desktop/repos/AirlineTicketManagementSystem/cmake-build-debug/Makefile&quot;  VERBOSE=1 AirlineTicketManagementSystem"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zuzan/Desktop/repos/AirlineTicketManagementSystem/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zuzan/Desktop/repos/AirlineTicketManagementSystem/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zuzan/Desktop/repos/AirlineTicketManagementSystem/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="AirlineTicketManagementSystem/fast">
-				<Option output="C:/Users/zuzan/CLionProjects/AirlineTicketManagementSystem/cmake-build-debug/AirlineTicketManagementSystem.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/zuzan/CLionProjects/AirlineTicketManagementSystem/cmake-build-debug"/>
+				<Option output="C:/Users/zuzan/Desktop/repos/AirlineTicketManagementSystem/cmake-build-debug/AirlineTicketManagementSystem.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/zuzan/Desktop/repos/AirlineTicketManagementSystem/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -55,61 +55,61 @@
 					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zuzan/CLionProjects/AirlineTicketManagementSystem/cmake-build-debug/Makefile&quot;  VERBOSE=1 AirlineTicketManagementSystem/fast"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zuzan/CLionProjects/AirlineTicketManagementSystem/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zuzan/CLionProjects/AirlineTicketManagementSystem/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zuzan/CLionProjects/AirlineTicketManagementSystem/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zuzan/Desktop/repos/AirlineTicketManagementSystem/cmake-build-debug/Makefile&quot;  VERBOSE=1 AirlineTicketManagementSystem/fast"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zuzan/Desktop/repos/AirlineTicketManagementSystem/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zuzan/Desktop/repos/AirlineTicketManagementSystem/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zuzan/Desktop/repos/AirlineTicketManagementSystem/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="C:/Users/zuzan/CLionProjects/AirlineTicketManagementSystem/cmake-build-debug"/>
+				<Option working_dir="C:/Users/zuzan/Desktop/repos/AirlineTicketManagementSystem/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zuzan/CLionProjects/AirlineTicketManagementSystem/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zuzan/CLionProjects/AirlineTicketManagementSystem/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zuzan/CLionProjects/AirlineTicketManagementSystem/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zuzan/CLionProjects/AirlineTicketManagementSystem/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zuzan/Desktop/repos/AirlineTicketManagementSystem/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zuzan/Desktop/repos/AirlineTicketManagementSystem/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zuzan/Desktop/repos/AirlineTicketManagementSystem/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zuzan/Desktop/repos/AirlineTicketManagementSystem/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="C:/Users/zuzan/CLionProjects/AirlineTicketManagementSystem/cmake-build-debug"/>
+				<Option working_dir="C:/Users/zuzan/Desktop/repos/AirlineTicketManagementSystem/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zuzan/CLionProjects/AirlineTicketManagementSystem/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zuzan/CLionProjects/AirlineTicketManagementSystem/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zuzan/CLionProjects/AirlineTicketManagementSystem/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zuzan/CLionProjects/AirlineTicketManagementSystem/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zuzan/Desktop/repos/AirlineTicketManagementSystem/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zuzan/Desktop/repos/AirlineTicketManagementSystem/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zuzan/Desktop/repos/AirlineTicketManagementSystem/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/zuzan/Desktop/repos/AirlineTicketManagementSystem/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/zuzan/CLionProjects/AirlineTicketManagementSystem/Date.h">
+		<Unit filename="C:/Users/zuzan/Desktop/repos/AirlineTicketManagementSystem/Date.h">
 			<Option target="AirlineTicketManagementSystem"/>
 		</Unit>
-		<Unit filename="C:/Users/zuzan/CLionProjects/AirlineTicketManagementSystem/Person.cpp">
+		<Unit filename="C:/Users/zuzan/Desktop/repos/AirlineTicketManagementSystem/Person.cpp">
 			<Option target="AirlineTicketManagementSystem"/>
 		</Unit>
-		<Unit filename="C:/Users/zuzan/CLionProjects/AirlineTicketManagementSystem/Person.h">
+		<Unit filename="C:/Users/zuzan/Desktop/repos/AirlineTicketManagementSystem/Person.h">
 			<Option target="AirlineTicketManagementSystem"/>
 		</Unit>
-		<Unit filename="C:/Users/zuzan/CLionProjects/AirlineTicketManagementSystem/Tickets/BusinessClass.cpp">
+		<Unit filename="C:/Users/zuzan/Desktop/repos/AirlineTicketManagementSystem/Tickets/BusinessClass.cpp">
 			<Option target="AirlineTicketManagementSystem"/>
 		</Unit>
-		<Unit filename="C:/Users/zuzan/CLionProjects/AirlineTicketManagementSystem/Tickets/BusinessClass.h">
+		<Unit filename="C:/Users/zuzan/Desktop/repos/AirlineTicketManagementSystem/Tickets/BusinessClass.h">
 			<Option target="AirlineTicketManagementSystem"/>
 		</Unit>
-		<Unit filename="C:/Users/zuzan/CLionProjects/AirlineTicketManagementSystem/Tickets/RegularClass.cpp">
+		<Unit filename="C:/Users/zuzan/Desktop/repos/AirlineTicketManagementSystem/Tickets/RegularClass.cpp">
 			<Option target="AirlineTicketManagementSystem"/>
 		</Unit>
-		<Unit filename="C:/Users/zuzan/CLionProjects/AirlineTicketManagementSystem/Tickets/RegularClass.h">
+		<Unit filename="C:/Users/zuzan/Desktop/repos/AirlineTicketManagementSystem/Tickets/RegularClass.h">
 			<Option target="AirlineTicketManagementSystem"/>
 		</Unit>
-		<Unit filename="C:/Users/zuzan/CLionProjects/AirlineTicketManagementSystem/constants.h">
+		<Unit filename="C:/Users/zuzan/Desktop/repos/AirlineTicketManagementSystem/constants.h">
 			<Option target="AirlineTicketManagementSystem"/>
 		</Unit>
-		<Unit filename="C:/Users/zuzan/CLionProjects/AirlineTicketManagementSystem/main.cpp">
+		<Unit filename="C:/Users/zuzan/Desktop/repos/AirlineTicketManagementSystem/main.cpp">
 			<Option target="AirlineTicketManagementSystem"/>
 		</Unit>
-		<Unit filename="C:/Users/zuzan/CLionProjects/AirlineTicketManagementSystem/CMakeLists.txt">
+		<Unit filename="C:/Users/zuzan/Desktop/repos/AirlineTicketManagementSystem/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

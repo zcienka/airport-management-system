@@ -33,21 +33,20 @@ void BusinessClass::setSeat(std::string const &seat)
     this->price += 10;
 }
 
-
-void BusinessClass::orderDinner()
-{
-    this->isDinnerRequested = true;
-    this->price += 50;
-}
-
 void BusinessClass::setDateOfCarParkingTime(Date const &dateOfCarPickup, Date const &dateOfCarDropOff)
 {
     this->dateOfCarPickup = dateOfCarPickup;
     this->dateOfCarDropOff = dateOfCarDropOff;
 }
 
-void BusinessClass::extendValidityOfTicket(std::string const &validityOfTicket)
+void BusinessClass::extendValidityOfTicket(std::string const &date)
+{
+    this->validityOfTicket = date;
+}
+
+void changeDepartureDate(Date const &date)
 {
 
 }
+
 

@@ -34,10 +34,7 @@ public:
 
     virtual void changeDepartureDate(Date const &date);
 
-    std::string getArrivalAirport();
-
-    virtual void setWifiPlan();
-
+    virtual std::string getArrivalAirport();
 };
 
 

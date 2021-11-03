@@ -55,15 +55,20 @@ void RegularClass::changeDepartureAirport(std::string const &airport)
     this->price += 300;
 }
 
-void RegularClass::changeDepartureDate(Date const &date)
+void RegularClass::changeDepartureDate()
 {
-    this->departureDate = date;
-    this->price += 250;
-}
+    std::cout << "Pass changed departure date" << std::endl;
 
-void RegularClass::setWifiPlan()
-{
-    this->price += 50;
+    std::string date;
+    Date changedDate;
+
+    while(std::cin >> date)
+    {
+
+    }
+
+    this->departureDate = changedDate;
+    this->price += 250;
 }
 
 std::string RegularClass::getArrivalAirport()
