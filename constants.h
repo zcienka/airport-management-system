@@ -48,7 +48,6 @@ std::string const BUSINESS_CLASS = "BUSINESS_CLASS";
 std::string const ADULT = "ADULT";
 std::string const CHILD = "CHILD";
 std::string const TODDLER = "TODDLER";
-//std::string
 
 #endif //AIRLINETICKETMANAGEMENTSYSTEM_CONSTANTS_H
 

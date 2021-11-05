@@ -9,12 +9,15 @@
 struct TicketInfo
 {
     Date date;
-    int numberOfBaggage;
-    std::vector<Passenger> people;
+    int numberOfHandBaggage;
+    int maxNumberOfHandBaggage;
+    std::vector<Passenger> passengers;
     std::string preferredClass;
+    int maxNumberOfBaggage;
+    int numberOfBaggage;
 };
 
-Passenger setPassengerInfo(int const &personNum)
+Passenger setPassengerInfo(int personNum)
 {
     std::string date, lastName, name, phoneNumber;
 
@@ -46,7 +49,7 @@ Passenger setPassengerInfo(int const &personNum)
         }
     }
 
-    std::cout << "Enter date of birth of person #" << personNum << ":";
+    std::cout << "Enter date of birth of person #" << personNum << " (day-month-year)" << ":";
 
     Date dateOfBirth;
     while (std::cin >> date)
@@ -60,7 +63,7 @@ Passenger setPassengerInfo(int const &personNum)
             }
         }
         std::cout << "Date of birth is invalid" << std::endl;
-        std::cout << "Enter date of birth of person #" << personNum << ":";
+        std::cout << "Enter date of birth of person #" << personNum << " (day-month-year)" << ":";
     }
 
     Passenger person = Passenger(dateOfBirth, name, lastName);
@@ -75,6 +78,7 @@ TicketInfo setTicketInfo()
     std::cout << "Enter your preferred class" << std::endl;
     std::cout << "[a] Regular class" << std::endl;
     std::cout << "[b] Business class" << std::endl;
+    std::cout << "Preferred class:";
 
     while (std::cin >> preferredClass)
     {
@@ -96,6 +100,7 @@ TicketInfo setTicketInfo()
             std::cout << "Enter your preferred class" << std::endl;
             std::cout << "[a] Regular class" << std::endl;
             std::cout << "[b] Business class" << std::endl;
+            std::cout << "Preferred class:";
         }
     }
 
@@ -145,47 +150,95 @@ TicketInfo setTicketInfo()
     }
 
     std::string numberOfBaggage;
-    std::cout << "Enter number of hand baggage:";
-    int maxNumberOfBaggage;
-    //    TODO: sprawdz to
-    if(preferredClass == REGULAR_CLASS)
+
+    int maxNumberOfBaggage, maxNumberOfHandBaggage;
+    bool isBaggageRequested = true;
+    if (preferredClass == REGULAR_CLASS)
     {
-        maxNumberOfBaggage = 2;
+        maxNumberOfHandBaggage = 3 * std::stoi(numberOfPassengers);
+        isBaggageRequested = false;
     }
     else
     {
-        maxNumberOfBaggage = 10;
+        maxNumberOfHandBaggage = 5 * std::stoi(numberOfPassengers);
+        maxNumberOfBaggage = 10 * std::stoi(numberOfPassengers);
     }
-    while (std::cin >> numberOfBaggage)
+
+    if (isBaggageRequested)
     {
-        if (std::all_of(numberOfBaggage.begin(), numberOfBaggage.end(), ::isdigit))
+        std::cout << "Enter number of baggage for all passengers:";
+        while (std::cin >> numberOfBaggage)
         {
-            if (std::stoi(numberOfBaggage) > 0 && std::stoi(numberOfBaggage) < maxNumberOfBaggage)
+            if (std::all_of(numberOfBaggage.begin(), numberOfBaggage.end(), ::isdigit))
+            {
+                if (std::stoi(numberOfBaggage) > 0 && std::stoi(numberOfBaggage) <= maxNumberOfBaggage)
+                {
+                    break;
+                }
+                else
+                {
+                    std::cout << "Number of baggage needs to be greater than zero and smaller than "
+                              << maxNumberOfBaggage + 1
+                              << std::endl;
+                }
+            }
+            else
+            {
+                std::cout << "Number of baggage is invalid" << std::endl;
+            }
+            std::cout << "Enter number of baggage for all passengers:";
+        }
+    }
+
+    std::string numberOfHandBaggage;
+    std::cout << "Enter number of hand baggage for all passengers:";
+    while (std::cin >> numberOfHandBaggage)
+    {
+        if (std::all_of(numberOfHandBaggage.begin(), numberOfHandBaggage.end(), ::isdigit))
+        {
+            if (std::stoi(numberOfHandBaggage) > 0 && std::stoi(numberOfHandBaggage) <= maxNumberOfHandBaggage)
             {
                 break;
             }
             else
             {
-                std::cout << "Number of baggage needs to be greater than zero and smaller than 10" << std::endl;
+                std::cout << "Number of hand baggage needs to be greater than zero and smaller than "
+                          << maxNumberOfHandBaggage + 1
+                          << std::endl;
             }
         }
         else
         {
-            std::cout << "Number of baggage is invalid" << std::endl;
-            std::cout << "Enter number of hand baggage:";
+            std::cout << "Number of hand baggage is invalid" << std::endl;
         }
-    }
+        std::cout << "Enter number of hand baggage for all passengers:";
 
-    TicketInfo ticketInfo{.date=date,
-            .numberOfBaggage=std::stoi(numberOfBaggage),
-            .people=people,
-            .preferredClass=preferredClass};
-    return ticketInfo;
+    }
+    if (!isBaggageRequested)
+    {
+        TicketInfo ticketInfo{.date=date,
+                .numberOfHandBaggage=std::stoi(numberOfHandBaggage),
+                .maxNumberOfHandBaggage=maxNumberOfHandBaggage,
+                .passengers=people,
+                .preferredClass=preferredClass};
+        return ticketInfo;
+    }
+    else
+    {
+        TicketInfo ticketInfo{.date=date,
+                .numberOfHandBaggage=std::stoi(numberOfHandBaggage),
+                .maxNumberOfHandBaggage=maxNumberOfHandBaggage,
+                .passengers=people,
+                .preferredClass=preferredClass,
+                .maxNumberOfBaggage=maxNumberOfBaggage,
+                .numberOfBaggage=std::stoi(numberOfBaggage)};
+        return ticketInfo;
+    }
 }
 
 void printAvailableConnections()
 {
-    std::cout << "Choose your flight connection" << std::endl;
+    std::cout << "Available connections:" << std::endl;
     std::cout.precision(2);
     for (auto const &connection: FLIGHT_CONNECTIONS)
     {
@@ -200,6 +253,7 @@ FlightConnection setFlightConnection()
 {
     printAvailableConnections();
     std::string connectionId;
+    std::cout << "Choose your flight connection:";
 
     while (std::cin >> connectionId)
     {
@@ -212,13 +266,15 @@ FlightConnection setFlightConnection()
         }
         std::cout << "Chosen connection is invalid." << std::endl;
         printAvailableConnections();
+        std::cout << "Choose your flight connection:";
     }
 
     return FLIGHT_CONNECTIONS[std::stoi(connectionId) - 1];
 }
 
-void flightOptionsBusinessClass(BusinessClass ticketBusinessClass)
+void displayMenuBusinessClass()
 {
+    std::cout << "############################################################" << std::endl;
     std::cout << "[a] Cancel your flight." << std::endl;
     std::cout << "[b] Extend validity of your ticket." << std::endl;
     std::cout << "[c] Change departure date." << std::endl;
@@ -226,15 +282,23 @@ void flightOptionsBusinessClass(BusinessClass ticketBusinessClass)
     std::cout << "[e] Add extra baggage." << std::endl;
     std::cout << "[f] Change your seat." << std::endl;
     std::cout << "[g] Set your parking time." << std::endl;
+    std::cout << "[h] Print ticket information" << std::endl;
     std::cout << "[q] Quit" << std::endl;
-//    TODO: print info
+    std::cout << "############################################################" << std::endl;
+}
 
-    std::string command;
+void flightOptionsBusinessClass(BusinessClass ticketBusinessClass)
+{
     char charCommand;
-    bool isFlightCancelled = false;
     bool endProgram = false;
-    while (std::cin >> command && command != "q")
+    std::string command;
+
+    displayMenuBusinessClass();
+    std::cout << "Choose an option:";
+
+    while (true)
     {
+        std::cin >> command;
         if (command.length() == 1)
         {
             strcpy(&charCommand, command.c_str());
@@ -242,72 +306,65 @@ void flightOptionsBusinessClass(BusinessClass ticketBusinessClass)
             {
                 case 'a':
                 {
-                    std::string option;
-                    std::cout << "Do you want to cancel the flight? [y/n]" << std::endl;
-                    while (std::cin >> option)
+                    ticketBusinessClass.cancelFlight();
+                    break;
+                    case 'b':
                     {
-
-                        if (option == "y")
-                        {
-                            isFlightCancelled = true;
-                            ticketBusinessClass.cancelFlight();
-                            break;
-                        }
-                        else if (option != "n")
-                        {
-                            std::cout << "Chosen option is incorrect" << std::endl;
-                            std::cout << "Do you want to cancel the flight? [y/n]" << std::endl;
-                        }
+                        ticketBusinessClass.extendValidityOfTicket();
+                        break;
                     }
-                    break;
+                    case 'c':
+                    {
+                        ticketBusinessClass.changeDepartureDate();
+                        break;
+                    }
+                    case 'd':
+                    {
+                        ticketBusinessClass.addExtraHandBaggage();
+                        break;
+                    }
+                    case 'e':
+                    {
+                        ticketBusinessClass.addExtraBaggage();
+                        break;
+                    }
+                    case 'f':
+                    {
+                        ticketBusinessClass.changeSeat();
+                        break;
+                    }
+                    case 'g':
+                    {
+                        ticketBusinessClass.setDateOfCarParkingTime();
+                        break;
+                    }
+                    case 'h':
+                    {
+                        ticketBusinessClass.printTicketInformation();
+                        break;
+                    }
+                    case 'q':
+                    {
+                        endProgram = true;
+                        ticketBusinessClass.printTicketInformation();
+                        break;
+                    }
+                    default:
+                        std::cout << "Inserted option is incorrect." << std::endl;
                 }
-                case 'b':
-                {
-                    ticketBusinessClass.extendValidityOfTicket();
-                    break;
-                }
-                case 'c':
-                {
-                    ticketBusinessClass.changeDepartureDate();
-                    break;
-                }
-                case 'd':
-                {
-                    ticketBusinessClass.addExtraHandBaggage();
-                    break;
-                }
-                case 'e':
-                {
-                    ticketBusinessClass.addExtraBaggage();
-                    break;
-                }
-                case 'f':
-                {
-                    ticketBusinessClass.changeSeat();
-                    break;
-                }
-                case 'g':
-                {
-                    ticketBusinessClass.setDateOfCarParkingTime();
-                    break;
-                }
-                case 'q':
-                {
-                    endProgram = true;
-                    break;
-                }
-                default:
-                    std::cout << "Inserted option is incorrect." << std::endl;
             }
         }
         else
         {
             std::cout << "Inserted option is incorrect." << std::endl;
         }
-        if (endProgram)
+        std::cin.clear();
+        if (endProgram || ticketBusinessClass.flightIsCancelled())
         {
             break;
         }
+        displayMenuBusinessClass();
+        std::cout << "Choose an option:";
     }
 }
 
@@ -318,16 +375,22 @@ void displayMenuRegularClass()
     std::cout << "[b] Add hand baggage." << std::endl;
     std::cout << "[c] Change departure date." << std::endl;
     std::cout << "[d] Print tickets information" << std::endl;
+    std::cout << "[e] Change seat number" << std::endl;
     std::cout << "[q] Quit" << std::endl;
     std::cout << "############################################################" << std::endl;
 }
+
 void flightOptionsRegularClass(RegularClass ticketRegularClass)
 {
     displayMenuRegularClass();
-    std::string command;
+    std::cout << "Choose an option:";
     char charCommand;
-    while (std::cin >> command && command != "q")
+    bool leaveTheMenu = false;
+    std::string command;
+
+    while (true)
     {
+        std::cin >> command;
         if (command.length() == 1)
         {
             strcpy(&charCommand, command.c_str());
@@ -353,8 +416,14 @@ void flightOptionsRegularClass(RegularClass ticketRegularClass)
                     ticketRegularClass.printTicketInformation();
                     break;
                 }
+                case 'e':
+                {
+                    ticketRegularClass.changeSeat();
+                }
                 case 'q':
                 {
+                    ticketRegularClass.printTicketInformation();
+                    leaveTheMenu = true;
                     break;
                 }
                 default:
@@ -365,7 +434,13 @@ void flightOptionsRegularClass(RegularClass ticketRegularClass)
         {
             std::cout << "Inserted option is incorrect." << std::endl;
         }
+        std::cin.clear();
+        if (leaveTheMenu || ticketRegularClass.flightIsCancelled())
+        {
+            break;
+        }
         displayMenuRegularClass();
+        std::cout << "Choose an option:";
     }
 }
 
@@ -375,21 +450,26 @@ int main()
     TicketInfo ticketInfo = setTicketInfo();
     std::string command;
 
-    if (ticketInfo.preferredClass == "BUSINESS_CLASS")
+    if (ticketInfo.preferredClass == BUSINESS_CLASS)
     {
         BusinessClass ticketBusinessClass = BusinessClass(ticketInfo.date,
+                                                          ticketInfo.numberOfHandBaggage,
+                                                          ticketInfo.passengers,
+                                                          flightConnection,
                                                           ticketInfo.numberOfBaggage,
-                                                          ticketInfo.people,
-                                                          flightConnection);
+                                                          ticketInfo.maxNumberOfHandBaggage,
+                                                          ticketInfo.maxNumberOfBaggage);
         std::cout << "Set your flight details" << std::endl;
         flightOptionsBusinessClass(ticketBusinessClass);
     }
     else
     {
         RegularClass ticketRegularClass = RegularClass(ticketInfo.date,
-                                                       ticketInfo.numberOfBaggage,
-                                                       ticketInfo.people,
-                                                       flightConnection);
+                                                       ticketInfo.numberOfHandBaggage,
+                                                       ticketInfo.passengers,
+                                                       flightConnection,
+                                                       ticketInfo.maxNumberOfHandBaggage);
+        std::cout << "Set your flight details" << std::endl;
         flightOptionsRegularClass(ticketRegularClass);
     }
 }

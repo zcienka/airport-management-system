@@ -8,18 +8,22 @@
 class BusinessClass : public RegularClass
 {
     int numOfBaggage;
+    int maxNumOfBaggage;
     Date dateOfCarPickup;
     Date dateOfCarDropOff;
+    bool isParkingRequested;
 public:
     BusinessClass(Date const &departureDate,
-                  int const &numOfBaggage,
-                  std::vector<Passenger> const &people,
-                  FlightConnection const &flightConnection);
+                  int numOfHandBaggage,
+                  std::vector<Passenger> const &passengers,
+                  FlightConnection const &flightConnection,
+                  int numOfBaggage,
+                  int maxNumOfHandBaggage,
+                  int maxNumOfBaggage);
 
     void addExtraBaggage();
-
-    void addExtraHandBaggage() override;
-
+    // the difference between this method and parent method is that in the parent method you need to pay money and here
+    // you don't pay money
     void changeDepartureDate() override;
 
     void setDateOfCarParkingTime();

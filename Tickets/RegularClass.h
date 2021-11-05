@@ -5,8 +5,12 @@
 #include "../Passenger.h"
 #include "../constants.h"
 #include <vector>
-#include "../constants.h"
 #include "../Date.h"
+#include <algorithm>
+#include <iostream>
+#include <map>
+#include <random>
+#include <chrono>
 
 class RegularClass
 {
@@ -17,24 +21,31 @@ protected:
     float basicPrice;
     FlightConnection flightConnection;
     float totalPrice;
+    bool isFlightCancelled;
+    int maxNumberOfHandBaggage;
     std::string validityOfTickets;
+    // validity of tickets is stored in string because of project requirements
+    // (there needs to be one int and one string)
 public:
     RegularClass(Date const &departureDate,
-                 int const &numOfHandBaggage,
-                 std::vector<Passenger> people,
-                 FlightConnection const &flightConnection);
+                 int numOfHandBaggage,
+                 std::vector<Passenger> passengers,
+                 FlightConnection const &flightConnection,
+                 int maxNumOfHandBaggage);
 
-    virtual void addExtraHandBaggage();
+    void addExtraHandBaggage();
 
     void cancelFlight();
 
     virtual void changeDepartureDate();
 
-    virtual void changeSeat();
+    void changeSeat();
 
     virtual void printTicketInformation();
 
     void extendValidityOfTicket();
+
+    bool flightIsCancelled() const;
 };
 
 

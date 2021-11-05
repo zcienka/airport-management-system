@@ -14,10 +14,6 @@ Passenger::Passenger(Date const &dateOfBirth,
     const int currentMonth = currentTime->tm_mon + 1;
     const int currentDay = currentTime->tm_mday;
 
-    const int ageInYears = currentYear - dateOfBirth.year;
-    const int ageInMonths = currentMonth - dateOfBirth.month;
-    const int ageInDays = currentDay - dateOfBirth.day;
-
     if (currentYear - dateOfBirth.year > 18)
     {
         this->typeOfPerson = ADULT;
@@ -75,11 +71,6 @@ Passenger::Passenger(Date const &dateOfBirth,
     }
 }
 
-std::string Passenger::getTypeOfPerson()
-{
-    return typeOfPerson;
-}
-
 std::string Passenger::getName()
 {
     return name;
@@ -95,7 +86,7 @@ int Passenger::getDiscountValue() const
     return this->discountValue;
 }
 
-void Passenger::setId(int const &id)
+void Passenger::setId(int id)
 {
     this->id = id;
 }

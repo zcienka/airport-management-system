@@ -21,15 +21,13 @@ public:
               std::string const &name,
               std::string const &lastName);
 
-    std::string getTypeOfPerson();
-
     std::string getName();
 
     std::string getLastName();
 
     int getDiscountValue() const;
 
-    void setId(int const &id);
+    void setId(int id);
 
     int getId() const;
 

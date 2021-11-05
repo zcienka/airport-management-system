@@ -9,4 +9,9 @@ add_executable(AirlineTicketManagementSystem
         Tickets/RegularClass.cpp
         Passenger.cpp
         constants.h
-        Date.cpp)
+        Date.cpp
+        Passenger.cpp)
+
+
+set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -static-libstdc++ -static-libgcc")
+

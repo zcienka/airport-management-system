@@ -2,55 +2,54 @@
 #include "BusinessClass.h"
 
 BusinessClass::BusinessClass(Date const &departureDate,
-                             int const &numOfBaggage,
-                             std::vector<Passenger> const &people,
-                             FlightConnection const &flightConnection) : RegularClass(departureDate,
-                                                                                      numOfBaggage,
-                                                                                      people,
-                                                                                      flightConnection) {}
+                             int numOfHandBaggage,
+                             std::vector<Passenger> const &passengers,
+                             FlightConnection const &flightConnection,
+                             int numOfBaggage,
+                             int maxNumOfHandBaggage,
+                             int maxNumOfBaggage) : RegularClass(departureDate,
+                                                                 numOfHandBaggage,
+                                                                 passengers,
+                                                                 flightConnection,
+                                                                 maxNumOfHandBaggage)
+{
+    this->maxNumOfBaggage = maxNumOfBaggage;
+    this->numOfBaggage = numOfBaggage;
+    this->isParkingRequested = false;
+}
 
 void BusinessClass::addExtraBaggage()
 {
-    std::cout << "Enter number of extra baggage:";
-
-    std::string numOfBaggage;
-    while (std::cin >> numOfBaggage)
+    if (this->maxNumOfBaggage - this->numOfBaggage != 0)
     {
-        if (std::all_of(numOfBaggage.begin(), numOfBaggage.end(), ::isdigit))
+        std::cout << "Enter number of extra baggage (max amount of hand baggage: "
+                  << this->maxNumOfBaggage - this->numOfBaggage << "):";
+
+        std::string numberOfBaggage;
+        while (std::cin >> numberOfBaggage)
         {
-            if (this->numOfBaggage + std::stoi(numOfBaggage) <= 10)
+            if (std::all_of(numberOfBaggage.begin(), numberOfBaggage.end(), ::isdigit))
             {
-                this->totalPrice += (float) (230 * std::stoi(numOfBaggage));
-                this->numOfBaggage += std::stoi(numOfBaggage);
-                break;
+                if (this->numOfBaggage + stoi(numberOfBaggage) <= this->maxNumOfBaggage && stoi(numberOfBaggage) > 0)
+                {
+                    this->numOfBaggage += stoi(numberOfBaggage);
+                    break;
+                }
+                else
+                {
+                    std::cout << "Maximum amount of hand baggage is " << this->maxNumOfBaggage << std::endl;
+                }
             }
             else
             {
-                std::cout << "Maximum amount of baggage is 10." << std::endl;
+                std::cout << "Number is invalid." << std::endl;
             }
+            std::cout << "Enter number of extra baggage:";
         }
-        else
-        {
-            std::cout << "Number is invalid" << std::endl;
-        }
-        std::cout << "Enter number of extra baggage:";
     }
-}
-
-void BusinessClass::addExtraHandBaggage()
-{
-    std::cout << "Enter number of extra hand baggage:";
-
-    std::string numberOfHandBaggage;
-    while (std::cin >> numberOfHandBaggage)
+    else
     {
-        if (std::all_of(numberOfHandBaggage.begin(), numberOfHandBaggage.end(), ::isdigit))
-        {
-            this->numOfHandBaggage = std::stoi(numberOfHandBaggage);
-            break;
-        }
-        std::cout << "Number is invalid." << std::endl;
-        std::cout << "Enter number of extra hand baggage:";
+        std::cout << "Amount of baggage requested is already maxmimum" << std::endl;
     }
 }
 
@@ -58,25 +57,38 @@ void BusinessClass::changeDepartureDate()
 {
     std::cout << "Enter changed departure date:";
     std::string date;
+    Date previousDate = this->departureDate;
 
     while (std::cin >> date)
     {
         if (isDateValid(date))
         {
             Date departureDate = getDate(date);
-            if (isFutureDateValid(departureDate))
+            if (!areDatesTheSame(previousDate, departureDate))
             {
-                this->departureDate = departureDate;
-                break;
+                if (isFutureDateValid(departureDate))
+                {
+                    if (this->validityOfTickets == dateToString(this->departureDate))
+                    {
+                        this->validityOfTickets = dateToString(departureDate);
+                    }
+                    this->departureDate = departureDate;
+                    break;
+                }
             }
-            std::cout << "Entered date is incorrect." << std::endl;
-            std::cout << "Enter changed departure date:";
+            else
+            {
+                std::cout << "Date can't be the same as the previous one. ";
+            }
         }
+        std::cout << "Entered date is incorrect." << std::endl;
+        std::cout << "Enter changed departure date:";
     }
 }
 
 void BusinessClass::setDateOfCarParkingTime()
 {
+    this->isParkingRequested = true;
     std::string dateOfCarPickup;
     std::string dateOfCarDropOff;
 
@@ -103,9 +115,9 @@ void BusinessClass::setDateOfCarParkingTime()
         if (isDateValid(dateOfCarPickup))
         {
             Date date = getDate(dateOfCarPickup);
-            if (isFutureDateValid(date) && isPastTheDate(this->dateOfCarPickup, this->dateOfCarDropOff))
+            if (isFutureDateValid(date) && isPastTheDate(this->dateOfCarDropOff, date))
             {
-                this->dateOfCarPickup = date;
+                this->dateOfCarDropOff = date;
                 break;
             }
         }
@@ -113,13 +125,17 @@ void BusinessClass::setDateOfCarParkingTime()
                      "Date of pickup needs to be an integer and it needs to take place after the drop-off date"
                   << std::endl;
         std::cout << "Enter date of car pick-up:";
+        std::cin.clear();
     }
 }
 
 void BusinessClass::printTicketInformation()
 {
+    std::cout << std::endl << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << std::endl << std::endl;
     std::cout << "Requested tickets information." << std::endl;
     std::cout << "Total price: " << this->totalPrice << "PLN" << std::endl;
+    std::cout << "Flight from: " << this->flightConnection.departureAirport << std::endl;
+    std::cout << "Flight to: " << this->flightConnection.arrivalAirport << std::endl;
     std::cout << "Departure date: " <<
               this->departureDate.day << "-" <<
               this->departureDate.month << "-" <<
@@ -128,21 +144,27 @@ void BusinessClass::printTicketInformation()
     std::cout << "Number of hand baggage: " << this->numOfHandBaggage << std::endl;
     std::cout << "Number of baggage: " << this->numOfBaggage << std::endl;
     std::cout << "Validity of tickets: " << this->validityOfTickets << std::endl;
-    std::cout << "Date of car pick-up:"
-              << this->dateOfCarPickup.day
-              << this->dateOfCarPickup.month
-              << this->dateOfCarPickup.year << std::endl;
-    std::cout << "Date of car pick-up:"
-              << this->dateOfCarDropOff.day
-              << this->dateOfCarDropOff.month
-              << this->dateOfCarDropOff.year << std::endl;
-    std::cout << "------------------------------------------------------------" << std::endl;
+
+    if (this->isParkingRequested)
+    {
+        std::cout << "Date of car drop-off: "
+                  << this->dateOfCarDropOff.day << "-"
+                  << this->dateOfCarDropOff.month << "-"
+                  << this->dateOfCarDropOff.year << std::endl;
+        std::cout << "Date of car pick-up: "
+                  << this->dateOfCarPickup.day << "-"
+                  << this->dateOfCarPickup.month << "-"
+                  << this->dateOfCarPickup.year << std::endl;
+    }
+    std::cout << std::endl << "------------------------------------------------------------" << std::endl;
     std::cout << "Passengers:" << std::endl;
 
     for (auto &passenger: this->passengers)
     {
-        std::cout << "Name: " << passenger.getName() << "Last name: " << passenger.getLastName() <<
-                  "Seat number: " << passenger.getSeatNumber() <<
-                  ". Ticket price: " << passenger.getTicketPrice() << "PLN" << std::endl;
+        std::cout << "Name: " << passenger.getName() << std::endl;
+        std::cout << "Last name: " << passenger.getLastName() << std::endl;
+        std::cout << "Seat number: " << passenger.getSeatNumber() << std::endl;
+        std::cout << "Ticket price: " << passenger.getTicketPrice() << "PLN" << std::endl;
     }
+    std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << std::endl << std::endl;
 }

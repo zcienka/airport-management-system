@@ -32,7 +32,7 @@ Date getDate(std::string date)
     return dateInfo;
 }
 
-bool isPastDateValid(Date date)
+bool isPastDateValid(Date const &date)
 {
     time_t t = time(nullptr);
     tm *const currentTime = localtime(&t);
@@ -66,7 +66,7 @@ bool isPastDateValid(Date date)
     return false;
 }
 
-bool isFutureDateValid(Date date)
+bool isFutureDateValid(Date const &date)
 {
     const int futureDateDay = date.day;
     const int futureDateMonth = date.month;
@@ -100,7 +100,7 @@ bool isFutureDateValid(Date date)
     return false;
 }
 
-int numberOfDaysInMonth(int const &month, int const &year)
+int numberOfDaysInMonth(int month, int year)
 {
     if (month == 2)
     {
@@ -162,26 +162,43 @@ bool isDateValid(std::string date)
         {
             if (numberOfMonths >= monthInt && monthInt >= 1)
             {
-                return true;
+                if (year.length() == 4 && year[0] == '2')
+                {
+                    return true;
+                }
             }
         }
     }
     return false;
 }
 
-bool isPastTheDate(Date date1, Date date2)
+bool isPastTheDate(Date const &date1, Date const &date2)
 {
-    if (date1.year > date2.year)
+    if (date1.year < date2.year)
     {
         return true;
     }
-    if (date1.year == date2.year && date1.month > date2.month)
+    if (date1.year == date2.year && date1.month < date2.month)
     {
         return true;
     }
-    if (date1.year == date2.year && date1.month == date2.month && date1.month > date2.month)
+    if (date1.year == date2.year && date1.month == date2.month && date1.day < date2.day)
     {
         return true;
     }
     return false;
+}
+
+bool areDatesTheSame(Date const &date1, Date const &date2)
+{
+    if (date1.day == date2.day && date1.month == date2.month && date1.year == date2.year)
+    {
+        return true;
+    }
+    return false;
+}
+
+std::string dateToString(Date date)
+{
+    return std::to_string(date.day) + "-" + std::to_string(date.month) + "-" + std::to_string(date.year);
 }
