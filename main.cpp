@@ -280,7 +280,7 @@ void displayMenuBusinessClass()
     std::cout << "[c] Change departure date." << std::endl;
     std::cout << "[d] Add extra hand baggage." << std::endl;
     std::cout << "[e] Add extra baggage." << std::endl;
-    std::cout << "[f] Change your seat." << std::endl;
+    std::cout << "[f] Change your seats." << std::endl;
     std::cout << "[g] Set your parking time." << std::endl;
     std::cout << "[h] Print ticket information" << std::endl;
     std::cout << "[q] Quit" << std::endl;

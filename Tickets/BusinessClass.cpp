@@ -16,6 +16,7 @@ BusinessClass::BusinessClass(Date const &departureDate,
     this->maxNumOfBaggage = maxNumOfBaggage;
     this->numOfBaggage = numOfBaggage;
     this->isParkingRequested = false;
+    this->totalPrice = 600;
 }
 
 void BusinessClass::addExtraBaggage()

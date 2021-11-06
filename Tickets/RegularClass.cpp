@@ -223,6 +223,12 @@ void RegularClass::changeSeat()
         std::cout << "Choose passenger id:";
     }
 
+    auto passengerIndex = std::find_if(this->passengers.begin(), this->passengers.end(),
+                                       [&passengerId](Passenger const &passenger)
+                                       {
+                                           return passenger.getId() == std::stoi(passengerId);
+                                       }) - this->passengers.begin();
+
     std::string seat;
     std::cout << "Enter seat number [A-F][1-15]:";
 
@@ -248,7 +254,7 @@ void RegularClass::changeSeat()
                                 if (seat[2] <= '5' && seat[1] == '1')
                                 {
                                     {
-                                        this->passengers[std::stoi(passengerId) - 1].setSeatNumber(seat);
+                                        this->passengers[passengerIndex].setSeatNumber(seat);
                                         break;
                                     }
                                 }
@@ -258,7 +264,7 @@ void RegularClass::changeSeat()
                         {
                             if (std::isdigit(seat[1]))
                             {
-                                this->passengers[std::stoi(passengerId) - 1].setSeatNumber(seat);
+                                this->passengers[passengerIndex].setSeatNumber(seat);
                                 break;
                             }
                         }
